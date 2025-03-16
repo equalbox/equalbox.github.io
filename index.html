@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>/dev/zero :: F#CK YOUR$ELF</title>
+    <link rel="stylesheet" href="assets/styles.css"/>
+    <link rel="Logo Icon" type="image/x-icon" href="./img/base/logotype.png"/>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li class="tab active" data-tab="home">#About</li>
+                <li class="tab" data-tab="social">#Define</li>
+                <li class="tab" data-tab="projects">#Remember</li>
+                <li class="tab" data-tab="channel">#Donate</li>
+            </ul>
+        </nav>
+
+        <section id="home" class="content active">
+            <img src="./img/base/profile.jpg" alt="Main picture" class="avatar"/>
+            <h1>Mark J. Zimmermann</h1>
+            <p>“Life is not about waiting for the storm to pass, but learning to dance in the rain.”</p>
+            <a href="https://github.com/equalbox" target="_blank" class="github-button">GitHub</a>
+        </section>
+
+        <section id="social" class="content">
+            <h1>Social Media</h1>
+            <table class="social-table">
+                <tr>
+                    <th>Platform</th>
+                    <th>Redirect</th>
+                </tr>
+                <tr>
+                    <td>Instagram</td>
+                    <td><a href="https://instagram.com/deadbape" target="_blank">Redirect Link</a></td>
+                </tr>
+                <tr>
+                    <td>Telegram</td>
+                    <td><a href="https://t.me/thrse" target="_blank">Redirect Link</a></td>
+                </tr>
+                <tr>
+                    <td>Reddit</td>
+                    <td><a href="https://www.reddit.com/user/aboveno/" target="_blank">Redirect Link</a></td>
+                </tr>
+            </table>
+        </section>
+
+<section id="projects" class="content">
+    <h1>Contact with me</h1>
+    <p>You can always contact me using these contact details.</p>
+    <br>
+    <a href="https://discord.com/users/1341073910904389752" target="_blank" class="contact-button">Discord</a>
+    <a href="https://t.me/ergonize" target="_blank" class="contact-button">Telegram</a>
+</section>
+
+        <section id="channel" class="content">
+            <h1>Donate</h1>
+
+            <div class="crypto-item">
+                <div class="crypto-text">
+                    <img src="./img/crypto/btc.svg" class="crypto-logo"/>
+                    <span class="crypto-name">Bitcoin (BTC)</span>
+                </div>
+                <div class="crypto-buttons">
+                    <button class="copy-btn" data-crypto="bc1qy8u3e2nd7u7tgfmh9p4taxqlcl7xgnyj9qcvdd">Copy</button>
+                    <a href="./crypto/btc.txt" class="visit-btn" target="_blank">View</a>
+                </div>
+            </div>
+
+            <div class="crypto-item">
+                <div class="crypto-text">
+                    <img src="./img/crypto/ltc.svg" class="crypto-logo"/>
+                    <span class="crypto-name">Litecoin (LTC)</span>
+                </div>
+                <div class="crypto-buttons">
+                    <button class="copy-btn" data-crypto="ltc1qzew42wnxjq3j99dan93u2j3vnu6zhxjwe4gdnm">Copy</button>
+                    <a href="./crypto/ltc.txt" class="visit-btn" target="_blank">Visit</a>
+                </div>
+            </div>
+
+            <div class="crypto-item">
+                <div class="crypto-text">
+                    <img src="./img/crypto/usdt.svg" class="crypto-logo"/>
+                    <span class="crypto-name">USDT (TRC20)</span>
+                </div>
+                <div class="crypto-buttons">
+                    <button class="copy-btn" data-crypto="TXt4YtnxveW7zXJ6NJHZeKYTppQs61eT7o">Copy</button>
+                    <a href="./crypto/usdt_trc20.txt" class="visit-btn" target="_blank">Visit</a>
+                </div>
+            </div>
+
+            <div class="crypto-item">
+                <div class="crypto-text">
+                    <img src="./img/crypto/usdt.svg" class="crypto-logo"/>
+                    <span class="crypto-name">USDT (ERC20)</span>
+                </div>
+                <div class="crypto-buttons">
+                    <button class="copy-btn" data-crypto="0x7d2beEb220664da08aB598166Cda3889F163a6d0">Copy</button>
+                    <a href="./crypto/usdt_erc20.txt" class="visit-btn" target="_blank">Visit</a>
+                </div>
+            </div>
+
+             <div class="crypto-item">
+                <div class="crypto-text">
+                    <img src="./img/crypto/ton.svg" class="crypto-logo"/>
+                    <span class="crypto-name">Ton (TON)</span>
+                </div>
+                <div class="crypto-buttons">
+                    <button class="copy-btn" data-crypto="UQC58zFHN5INExbPuRw2JOIQt5D1BqjxMdzuxgej_BGp4yeP">Copy</button>
+                    <a href="./crypto/ton.txt" class="visit-btn" target="_blank">Visit</a>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <script>
+        document.querySelectorAll('.copy-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const cryptoAddress = button.getAttribute('data-crypto');
+                navigator.clipboard.writeText(cryptoAddress).then(() => {
+                    const notification = document.createElement('div');
+                    notification.innerText = 'Address copied to clipboard!';
+                    notification.style.position = 'fixed';
+                    notification.style.bottom = '20px';
+                    notification.style.right = '20px';
+                    notification.style.padding = '10px';
+                    notification.style.backgroundColor = '#4CAF50';
+                    notification.style.color = 'white';
+                    notification.style.borderRadius = '5px';
+                    notification.style.boxShadow = '0px 2px 10px rgba(0,0,0,0.1)';
+                    document.body.appendChild(notification);
+                    
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 3000);
+                }).catch(err => {
+                    console.error('Failed to copy text: ', err);
+                });
+            });
+        });
+    </script>
+
+    <script src="assets/copy.js"></script>
+    <script src="assets/script.js"></script>
+</body>
+</html>
